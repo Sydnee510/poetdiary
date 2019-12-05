@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 git_source(:github) {|poetdiary| "https://github.com/Sydnee510/poetdiary" }
 
-gem 'activerecord', :require => 'active_record'
+gem 'activerecord', '<=6.0', :require => 'active_record'
 gem 'rack-test'
 gem 'rake'
 gem 'require_all'

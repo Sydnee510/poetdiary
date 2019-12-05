@@ -1,3 +1,4 @@
+require "./config/environment"
 class ApplicationController < Sinatra::Base
     configure do 
         set :views, 'app/views'
@@ -16,5 +17,15 @@ class ApplicationController < Sinatra::Base
     get '/signup' do 
         erb :signup 
     end 
+    post "/signup" do
+        @user = User.new(:username => params[:username], :password => params[:password])
+        @user.save
+   
+        if params[:username] == "" || params[:password] == ""
+        redirect '/failure'
+      else
+         redirect '/login'
+      end
+    end
     
 end 
