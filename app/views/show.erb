@@ -1,0 +1,7 @@
+<h1>Title: <%= @poem.title %></h1>
+<h5>Description: <%= @poem.description %></h5>
+<h3>Content: <%= @poem.content %></h3> 
+<form method="post" action="/poems/<%= @poem.id %>">
+<input id="hidden" type="hidden" name="_method" value="DELETE">
+<input type="submit" value="delete"> 
+</form>

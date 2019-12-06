@@ -38,6 +38,9 @@ class ApplicationController < Sinatra::Base
         @author = Author.find(session[:author_id])
         erb :profile
     end
+    # get '/show' do 
+    #   erb :show 
+    # end 
     get '/login' do 
         erb :login 
     end 
