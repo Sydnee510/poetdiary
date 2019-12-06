@@ -1,0 +1,12 @@
+<h3>Edit your piece</h3>
+<form action="/poems/<%= @poem.id %>" method="POST">
+  <input type="hidden" name="_method" value="patch">
+  <input type="text" name="title" value="<%= @poem.title %>" placeholder="Title:">
+  <input type="text" name="description" value="<%= @poem.description %>" placeholder="Description:">
+  <br>
+<!-- <input type="text" size="150%" name="content" placeholder="Content:"> -->
+<textarea name="content" id="content" value="<%= @poem.content %>" placeholder="Content:" style="width:50%;height:300px;font:18px sans-serif"></textarea>
+  <br>
+  <input type="submit" value="edit">
+</form>
+<a href="/profile">back to profile</a>

@@ -15,21 +15,27 @@ class ApplicationController < Sinatra::Base
     get '/signup' do 
         erb :signup 
     end 
-    post '/signup' do
-        @author = Author.new(username: params[:username], password: params[:password])
-        @author.save
+    # post '/signup' do
+    #     @author = Author.new(username: params[:username], password: params[:password])
+    #     @author.save
 
-        if params[:username] == "" || params[:password] == ""
-        redirect '/failure'
+    #     if params[:username] == "" || params[:password] == ""
+    #     redirect '/failure'
+    #   else
+    #      redirect '/login'
+    #   end
+    # end 
+    post '/signup' do
+      author = Author.new(author_params)
+      if author.save
+        redirect '/'
       else
-         redirect '/login'
+        @errors = ["Signup failed"]
+        erb :failure
       end
-    end 
-    get '/new' do 
-        erb :new 
     end
     get '/profile' do
-       # @author = Author.find(session[:author_id])
+        @author = Author.find(session[:author_id])
         erb :profile
     end
     get '/login' do 
@@ -49,6 +55,7 @@ class ApplicationController < Sinatra::Base
         session.clear 
         redirect '/'
     end
+   
 
   helpers do
     def logged_in?
@@ -63,6 +70,10 @@ class ApplicationController < Sinatra::Base
     def current_author
       Author.find(session[:author_id])
     end
+  end
+    private 
+    def author_params
+      { username: params[:username], password: params[:password] }
   end
     
 end 

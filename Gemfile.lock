@@ -12,6 +12,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.1, >= 2.1.8)
+    bcrypt (3.1.13)
     bond (0.5.1)
     byebug (11.0.1)
     coderay (1.1.2)
@@ -82,6 +83,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord (<= 6.0)
+  bcrypt
   byebug
   pry
   rack-test
