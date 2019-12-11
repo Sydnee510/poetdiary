@@ -1,7 +1,16 @@
-<h1>Title: <%= @poem.title %></h1>
+<h1>Poem created:</h1>
+
+
+<h2>Poem num: <%= @poem.id %></h2>
+<h2>Title: <%= @poem.title %></h2>
 <h5>Description: <%= @poem.description %></h5>
 <h3>Content: <%= @poem.content %></h3> 
+
+
 <form method="post" action="/poems/<%= @poem.id %>">
 <input id="hidden" type="hidden" name="_method" value="DELETE">
 <input type="submit" value="delete"> 
 </form>
+<a href="/poems/<%= @poem.id %>/edit">edit poem</a>
+<br>
+<a href="/profile">back to profile</a>

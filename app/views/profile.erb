@@ -1,7 +1,9 @@
 <h1>Your Creative Writing Profile</h1>
+<h5>current poetry</h5>
+<% @author.poems.each do |poem| %>
+    <a href="/poems/<%=poem.id %>">poem created</a>
 
-
-<p><a href="/poems/new">Create a Poem</a></p>
-
-
+    <% end %>
+ 
+<p><a href="/poems/new">Create a new Poem</a></p>
 <p><a href="/signout">Sign Out</a></p>

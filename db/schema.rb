@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_12_05_185013) do
     t.string "title"
     t.string "description"
     t.string "content"
+    t.integer "author_id"
   end
 
 end

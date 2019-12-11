@@ -26,16 +26,21 @@ class ApplicationController < Sinatra::Base
     #   end
     # end 
     post '/signup' do
-      author = Author.new(author_params)
-      if author.save
+      @author = Author.new(author_params)
+      if @author.save
         redirect '/'
       else
-        @errors = ["Signup failed"]
+        #@errors = ["Signup failed"]
         erb :failure
       end
     end
     get '/profile' do
         @author = Author.find(session[:author_id])
+       # @poem.author = Author.create(username: params[:username], password: params[:password_digest])
+        # @poem.save
+       # @poem.save
+        @poem = Poem.all
+      
         erb :profile
     end
     # get '/show' do 
