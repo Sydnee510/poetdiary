@@ -5,6 +5,7 @@ https://github.com/Sydnee510/poetdiary/pull/1
 
 # Create an account- each account has only one author
 get '/signup'
+<br>
 post '/signup'
 # Login as an author
 get '/login'
