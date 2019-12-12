@@ -14,6 +14,13 @@ class PoemsController < ApplicationController
         @poem.author = Author.find(session[:author_id])
         @poem.save
         erb :show
+        #  else 
+        #   poem_params.nil? || poem_params.empty?
+        #   erb :failure
+        #  end
+          # if poem_params.empty?
+          #   redirect '/failure'
+          # end
     end
     get '/poems/:id' do
       @poem = Poem.find(params[:id])
@@ -35,7 +42,9 @@ class PoemsController < ApplicationController
         erb :show
       end
       delete '/poems/:id' do
+        redirect_if_not_logged_in
         @poem = Poem.destroy(params[:id])
+        redirect '/profile'
       end	
       private
 
