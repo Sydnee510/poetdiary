@@ -1,5 +1,5 @@
 # poetdiary
-book of poems
+A book of poems where you can create and store your favorite pieces.
 # MIT LICENSE
 https://github.com/Sydnee510/poetdiary/pull/1
 
