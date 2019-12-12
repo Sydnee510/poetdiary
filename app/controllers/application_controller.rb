@@ -20,6 +20,7 @@ class ApplicationController < Sinatra::Base
       if @author.save
         redirect '/'
       else
+        @errors = ["Enter a valid username and password to signup!"]
         erb :failure
       end
     end
@@ -38,7 +39,8 @@ class ApplicationController < Sinatra::Base
         session[:author_id] = @author.id
         redirect '/profile'
         else 
-        redirect '/failure'
+        @errors = ["Enter a valid username and password to Login your account!"]  
+        erb :failure
         end
     end 
     get '/signout' do 

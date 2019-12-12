@@ -1,2 +1,10 @@
-<h2>you hit an error, try again.</h2>
+<h2>You hit an error, TRY AGAIN.</h2>
+<% if @errors %>
+    <ul>
+	<% @errors.each do |error| %>
+	    <li><%= error %></li>
+	<% end %>
+    </ul>
+<% end %>
 <p> Please <a href="/signup">Sign Up</a> or <a href="/login">Log In</a> to start your creative writing journey.</p>
+<a href="/profile">back to profile</a>

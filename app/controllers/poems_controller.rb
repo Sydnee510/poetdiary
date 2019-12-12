@@ -12,15 +12,13 @@ class PoemsController < ApplicationController
         redirect_if_not_logged_in
         @poem = Poem.create(poem_params)
         @poem.author = Author.find(session[:author_id])
-        @poem.save
+        if @poem.save
         erb :show
-        #  else 
-        #   poem_params.nil? || poem_params.empty?
-        #   erb :failure
-        #  end
-          # if poem_params.empty?
-          #   redirect '/failure'
-          # end
+        else 
+          poem_params.nil? || poem_params.empty?
+          @errors = ["Each field must be filled in to create a poem. Must have a Title, Description, and Content!"]
+          erb :failure
+         end
     end
     get '/poems/:id' do
       @poem = Poem.find(params[:id])
