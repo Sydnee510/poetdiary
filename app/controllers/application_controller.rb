@@ -24,6 +24,7 @@ class ApplicationController < Sinatra::Base
       end
     end
     get '/profile' do
+        redirect_if_not_logged_in
         @author = Author.find(session[:author_id])  
         erb :profile
     end
