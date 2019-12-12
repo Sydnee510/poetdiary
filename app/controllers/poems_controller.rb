@@ -1,6 +1,6 @@
 class PoemsController < ApplicationController
     get '/poems' do 
-       # redirect_if_not_logged_in
+        redirect_if_not_logged_in
         @poems = Poem.all
         erb :index
     end 
