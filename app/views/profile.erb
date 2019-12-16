@@ -1,14 +1,14 @@
 <h2>Hey <%=@author.username.upcase %></h2>
 <h1>Your Creative Writing Profile</h1>
 <h5>all created poems will stay here </h5>
-<% @author.poems.each do |poem| %>
-    <ul>
-    <li><a href="/poems/<%=poem.id %>"><%=poem.title %></a>
-    <br>
-    </li>
-    </ul>
+<% @author.poems.each.with_index(1) do |poem, index| %>
+    
+ <%="#{index})"%>  <a href="/poems/<%=poem.id %>"><%=poem.title %></a>
+ <br>  
  <% end %>
  
-<p><a href="/poems/new">Create a new Poem</a></p>
-<p><a href="/signout">Sign Out</a></p>
+ <p><a href="/poems/new">Create a new Poem</a></p>
+ 
+<a href="/signout">Sign Out</a>
+
 <body style="background-color: GreenYellow;">
