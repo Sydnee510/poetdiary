@@ -1,8 +1,10 @@
 <h1>Your personal poet diary!</h1>
 <p> Please <a href="/signup">Sign Up</a> or <a href="/login">Log In</a> to start your creative writing journey.</p>
 <p> Below are poems created by all our Poets. Feel free to take a look. </p>
-<% Poem.all.each.with_index(1) do |poem, index| %>
-    <%="#{index})"%>  <a href="/poems/<%=poem.id %>"><%=poem.title %></a> 
-    <br>  
-    <% end %>
+<% Poem.all.each do |poem| %>
+    <ul>
+    <li><a href="/poems/<%=poem.id %>"><%=poem.title %></a>, by <%=poem.author.username%>
+    </li>
+    </ul>  
+ <% end %>
 <body style="background-color: yellow;">
