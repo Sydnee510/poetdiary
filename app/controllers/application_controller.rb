@@ -3,6 +3,7 @@
 class ApplicationController < Sinatra::Base
     configure do 
         set :views, 'app/views'
+        set :public_folder, 'public/bootstrap-4.4.1-dist'
         enable :sessions
         set :session_secret, "password_security"
     end
