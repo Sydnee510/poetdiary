@@ -6,6 +6,7 @@ class PoemsController < ApplicationController
     end 
     
     get '/poems/new' do
+        redirect_if_not_logged_in
         erb :new
     end
     post '/poems' do

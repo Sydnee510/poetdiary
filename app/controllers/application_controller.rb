@@ -44,6 +44,7 @@ class ApplicationController < Sinatra::Base
         end
     end 
     get '/signout' do 
+        redirect_if_not_logged_in
         session.clear 
         redirect '/'
     end

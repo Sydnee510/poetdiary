@@ -13,6 +13,7 @@ gem 'sinatra'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'sqlite3'
 gem 'tux'
+gem 'bootstrap', '~> 4.4.1'
 
 group :test, :development do 
     gem 'pry'
