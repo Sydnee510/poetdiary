@@ -4,10 +4,13 @@ This is a web app where you can create and view creative writing pieces and stor
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 # Installing
 Clone repository to your local environment:
+<br>
 https://github.com/Sydnee510/poetdiary
-Run bundle install in terminal to install all dependencies
+<br>
+Run bundle install in terminal to install all dependencies.
 # Deployment
-Run rake console to test creating objects in the database
+Run rake console to test creating objects in the database.
+<br>
 Run shotgun to render web server. Click provided address.
 # Built With
 Sinatra, active-record
@@ -16,5 +19,7 @@ Sydnee Sampson-Blackwell
 # License
 This project is licensed under the MIT License:
 https://github.com/Sydnee510/poetdiary/blob/master/LICENSE 
+# Acknowledgments
+Flatiron School
 
 
