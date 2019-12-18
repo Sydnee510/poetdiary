@@ -5,7 +5,9 @@
 <p> Below are poems created by all our Poets. Feel free to take a look. </p>
 <% Poem.all.each do |poem| %>
     <ul>
-    <li><a href="/poems/<%=poem.id %>"><%=poem.title %></a>, by <%=poem.author.username%>
+    <li><a href="/poems/<%=poem.id %>"> <%= poem.title %> </a>, by <%= poem.author.username %>
+
     </li>
     </ul>  
  <% end %>
+ 

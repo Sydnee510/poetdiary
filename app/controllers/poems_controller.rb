@@ -11,7 +11,7 @@ class PoemsController < ApplicationController
     end
     post '/poems' do
         redirect_if_not_logged_in
-        @poem = Poem.create(poem_params)
+        @poem = current_author.poems.build(poem_params)
         @poem.author = Author.find(session[:author_id])
         if @poem.save
         erb :show
@@ -27,22 +27,29 @@ class PoemsController < ApplicationController
     end
     get '/poems/:id/edit' do
       redirect_if_not_logged_in
-     # if logged_in?
+      
+        #current_author
        # @author = Author.find(session[:author_id])  
-      @poem = Poem.find(params[:id])
+       if current_author
+      @poem = current_author.poems.find_by(id: params[:id])
       #@edit = Poem.where(author_id: current_author)
-      erb :edit
-      # else 
-      #   redirect '/login'
-      # end
+      if @poem
+        erb :edit
+       else 
+        redirect '/'
+       end
+      else 
+      redirect '/'
+       end
     end
     
       patch '/poems/:id' do
         redirect_if_not_logged_in
         # if logged_in?
         # @author = Author.find(session[:author_id])
-        # @edit = Poem.where(author_id: current_author)  
-        @poem = Poem.find(params[:id])
+        # @edit = Poem.where(author_id: current_author) 
+         
+        @poem = current_author.poems.find_by(id: params[:id])
         @poem.title = params[:title]
         @poem.description = params[:description]
         @poem.content = params[:content]
@@ -55,8 +62,18 @@ class PoemsController < ApplicationController
       delete '/poems/:id' do
         redirect_if_not_logged_in
        # @author = Author.find(session[:author_id])  
-        @poem = Poem.destroy(params[:id])
-        redirect '/profile'
+       if current_author
+         @poem = current_author.poems.find_by(id: params[:id])
+        #@poem.delete
+        if @poem
+          @poem.delete
+          redirect '/profile'
+       else 
+        redirect '/'
+       end
+      else redirect '/'
+       end
+
       end	
       private
 
