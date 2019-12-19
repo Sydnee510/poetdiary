@@ -26,13 +26,9 @@ class PoemsController < ApplicationController
       erb :show
     end
     get '/poems/:id/edit' do
-      redirect_if_not_logged_in
-      
-        #current_author
-       # @author = Author.find(session[:author_id])  
+      redirect_if_not_logged_in 
        if current_author
       @poem = current_author.poems.find_by(id: params[:id])
-      #@edit = Poem.where(author_id: current_author)
       if @poem
         erb :edit
        else 
@@ -44,27 +40,18 @@ class PoemsController < ApplicationController
     end
     
       patch '/poems/:id' do
-        redirect_if_not_logged_in
-        # if logged_in?
-        # @author = Author.find(session[:author_id])
-        # @edit = Poem.where(author_id: current_author) 
-         
+        redirect_if_not_logged_in  
         @poem = current_author.poems.find_by(id: params[:id])
         @poem.title = params[:title]
         @poem.description = params[:description]
         @poem.content = params[:content]
         @poem.save
         erb :show
-      #   else 
-      #     redirect '/login'
-      # end
     end
       delete '/poems/:id' do
-        redirect_if_not_logged_in
-       # @author = Author.find(session[:author_id])  
+        redirect_if_not_logged_in 
        if current_author
          @poem = current_author.poems.find_by(id: params[:id])
-        #@poem.delete
         if @poem
           @poem.delete
           redirect '/profile'

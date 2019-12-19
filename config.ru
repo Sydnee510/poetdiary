@@ -1,5 +1,6 @@
 require_relative './config/environment'
 
 use Rack::MethodOverride
-run ApplicationController
+use AuthorsController
 use PoemsController
+run ApplicationController
